@@ -1,10 +1,10 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './app/app.navigator'
+import MainNavigator from './Components/MainNavigator'
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
-import LoginScreen from './app/screens/LoginScreen'
+
 
 export default class App extends React.Component {
 
@@ -43,28 +43,10 @@ export default class App extends React.Component {
     })
   }
 
-  renderContent = () =>{
-    switch(this.state.loggedIn){
-      case false:
-        return (<LoginScreen />)
-      case true:
-           return (
-             <AppNavigator />
-          )
-           default:
-             return(
-              <View></View>
-             ) 
-
-
-    }
-  }
 
   render() {
     return (
-      <NavigationContainer>
-      {this.renderContent()}
-      </NavigationContainer>
+      <MainNavigator />
     );
   }
 }
