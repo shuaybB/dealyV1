@@ -35,6 +35,9 @@ export default function LoginScreen({ navigation }) {
     navigation.push("App");
   };
 
+  onBtnSignup = () => {
+    navigation.push("Registration")
+  }
 
   return (
     <View style={styles.container}>
@@ -66,6 +69,13 @@ export default function LoginScreen({ navigation }) {
             onPress={onBottomPress}
           >
             <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={onBtnSignup}
+          >
+            <Text style={styles.buttonText}>Dont have an account? Sign Up here!</Text>
           </TouchableOpacity>
 
           <Text style={styles.errorText}>{error}</Text>
