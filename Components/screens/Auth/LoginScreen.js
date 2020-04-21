@@ -19,7 +19,7 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  
   onBottomPress = () => {
     Keyboard.dismiss();
     firebase
@@ -35,7 +35,12 @@ export default function LoginScreen({ navigation }) {
     setLoading(false);
     navigation.push("App");
   };
-  return (
+  
+const BtnSignUp = () =>{
+  navigation.push("Registration")
+}
+return (
+
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Image
@@ -54,6 +59,7 @@ export default function LoginScreen({ navigation }) {
             value={email}
           />
 
+
           <TextInput
             placeholder="password"
             style={styles.input}
@@ -71,10 +77,14 @@ export default function LoginScreen({ navigation }) {
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
-          <Text style={styles.errorText}>{error}</Text>
-        </View>
-      </View>
+            <TouchableOpacity style={styles.buttonContainer} onPress={BtnSignUp} >
+                 <Text style={styles.buttonText}>Dont have an account? Sign Up here</Text>
+            </TouchableOpacity>
+         
+         <Text style={styles.errorText} >{error}</Text>
     </View>
+    </View>
+</View>
   );
 }
 
