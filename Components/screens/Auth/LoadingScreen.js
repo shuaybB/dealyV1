@@ -6,13 +6,7 @@ export default function LoadingScreen({ navigation }){
 
     return(
         <View>
-        <Text>LoadingScreen</Text>
-        <Button
-          title="React Native by Example"
-          onPress={() =>
-            navigation.push("Profile")
-          }
-        />       
+        <Text>LoadingScreen</Text>     
         </View>
         );
 }
