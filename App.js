@@ -14,8 +14,8 @@ export default class App extends React.Component {
       loggedIn: null
     }
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     var firebaseConfig = {
       apiKey: "AIzaSyDcLfVLwzlhXk17mb4SicCXmOkH-kN4DJ0",
       authDomain: "dealyv1.firebaseapp.com",
@@ -29,12 +29,12 @@ export default class App extends React.Component {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(user => {
-      if(user){
+      if (user) {
         this.setState({
           loggedIn: true
         })
       }
-      else{
+      else {
         this.setState({
           loggedIn: false
         })

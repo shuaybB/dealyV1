@@ -7,11 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  Button,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { set } from "react-native-reanimated";
 import { Keyboard } from "react-native";
+import { Icon } from "react-native-vector-icons/FontAwesome"
+import { Input } from "react-native-elements"
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -44,7 +45,8 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.logoContainer}>
         <Image
           style={styles.tinyLogo}
-          source={require("../../../assets/Logo.png")}
+          source={require("../../../assets/DealyLogo.png")}
+          resizeMode="contain"
         />
       </View>
 
@@ -63,6 +65,9 @@ export default function LoginScreen({ navigation }) {
             onChangeText={(password) => setPassword(password)}
             value={password}
           />
+
+          <Input placeholder="Enter your email"
+            leftIcon={{ type: 'font-awesome', name: 'envelope-o' }} />
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={onBottomPress}
@@ -88,7 +93,7 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2e2f60",
+    backgroundColor: "#ffffff",
   },
 
   logoContainer: {
@@ -100,8 +105,8 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   tinyLogo: {
-    width: 70,
-    height: 50,
+    width: 225,
+    height: 300,
   },
   input: {
     height: 40,
