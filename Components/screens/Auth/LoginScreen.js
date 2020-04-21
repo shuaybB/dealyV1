@@ -30,6 +30,10 @@ onLoginSuccess =  () =>{
     navigation.push("App")
 
 }
+
+const BtnSignUp = () =>{
+  navigation.push("Registration")
+}
 return (
     <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -60,7 +64,10 @@ return (
             <TouchableOpacity style={styles.buttonContainer} onPress={onBottomPress} >
                  <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
-
+            
+            <TouchableOpacity style={styles.buttonContainer} onPress={BtnSignUp} >
+                 <Text style={styles.buttonText}>Dont have an account? Sign Up here</Text>
+            </TouchableOpacity>
          
          <Text style={styles.errorText} >{error}</Text>
     </View>
