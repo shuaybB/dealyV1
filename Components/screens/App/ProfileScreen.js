@@ -7,7 +7,7 @@ export default function ProfileScreen({ navigation }) {
     <View>
       <Text>ProfileScreen</Text>
       <Button
-        title="This is the profile"
+        title="This is the profile page"
         onPress={() =>
           navigation.push("EditProfile")
         }

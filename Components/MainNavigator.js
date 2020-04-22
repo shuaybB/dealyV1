@@ -2,13 +2,16 @@ import React, { Component } from "react"
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from '@react-navigation/stack'
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import LoginScreen from "./screens/Auth/LoginScreen"
 import RegistrationScreen from "./screens/Auth/RegistrationScreen"
 import HomeScreen from "./screens/App/HomeScreen";
 import ProfileScreen from "./screens/App/ProfileScreen";
 import EditProfileScreen from "./screens/App/EditProfileScreen";
 import LoadingScreen from "./screens/Auth/LoadingScreen";
+import MapScreen from "./screens/App/MapScreen";
+import HotDealScreen from "./screens/App/HotDealScreen"
 
 
 const AuthStack = createStackNavigator()
@@ -20,7 +23,6 @@ const AuthStackScreen = () => (
 );
 
 const ProfileStack = createStackNavigator();
-const Tabs = createBottomTabNavigator();
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator initialRouteName='Profile'>
     <ProfileStack.Screen name="Profile" component={ProfileScreen} />
@@ -28,11 +30,13 @@ const ProfileStackScreen = () => (
   </ProfileStack.Navigator>
 );
 
-
+const Tabs = createMaterialBottomTabNavigator();
 const TabsScreen = () => (
-  <Tabs.Navigator>
-    <Tabs.Screen name="Home" component={HomeScreen} />
-    <Tabs.Screen name="ProfilePage" component={ProfileStackScreen} />
+  <Tabs.Navigator activeColor="#fca311" barStyle={{ backgroundColor: "#14213d", marginBottom: -5 }} >
+    <Tabs.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: "Home", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="home" color={color} size={26} />), }} />
+    <Tabs.Screen name="Hot Deals" component={HotDealScreen} options={{ tabBarLabel: "Hot Deals", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="fire" color={color} size={26} />), }} />
+    <Tabs.Screen name="Map" component={MapScreen} options={{ tabBarLabel: "Home", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="map-marker" color={color} size={26} />), }} />
+    <Tabs.Screen name="Settings" component={ProfileStackScreen} options={{ tabBarLabel: "Profile", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="account" color={color} size={26} />), }} />
   </Tabs.Navigator>
 );
 

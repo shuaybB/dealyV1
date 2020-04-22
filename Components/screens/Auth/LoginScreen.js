@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#e5e5e5",
     alignItems: "center",
-    fontSize: 14
   },
 
   logoContainer: {
