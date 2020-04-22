@@ -5,9 +5,17 @@ import firebase from "firebase";
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function ProfileScreen({ navigation }) {
-  const { currentUser } = firebase.auth()
+  const [{ currentUser }, setUser] = useState(firebase.auth())
 
-
+  const signOutUser = async () => {
+    try {
+        await firebase.auth().signOut();
+        navigation.navigate('Auth');
+    } catch (e) {
+        console.log(e);
+    }
+}
+  
   const onBtnEdit = () => {
     navigation.navigate('EditProfile')
   }
@@ -30,7 +38,7 @@ export default function ProfileScreen({ navigation }) {
       <TouchableOpacity style={styles.buttonContainer} onPress={onBtnEdit}>
             <Text style={styles.buttonText}>Edit Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={signOutUser}>
             <Text style={styles.buttonText}>Log out</Text>
           </TouchableOpacity>
     </View>

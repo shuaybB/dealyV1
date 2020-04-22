@@ -1,4 +1,4 @@
-import React , {Component, useState } from "react"
+import React , {Component, useState,  } from "react"
 import { StyleSheet, Text, View , Button, Image, TouchableOpacity, TextInput} from 'react-native';
 import firebase from "firebase";
 
@@ -10,6 +10,8 @@ export default function EditProfileScreen({ navigation }){
 
   var user = firebase.auth().currentUser;
   const [nickname, setNickname] = useState("");
+
+  
   const confirmEdit = () => {
     user.updateProfile({
       displayName: nickname,
@@ -22,11 +24,11 @@ export default function EditProfileScreen({ navigation }){
  
 
   const backBtn = () => {
-    navigation.navigate('Profile')
+    navigation.push('Profile')
   }
     return(
         <View style={styles.container}>
-        <Text>EditProfileScreen</Text>
+        <Text style={styles.emailName}>EditProfileScreen</Text>
 
         <TextInput
             style={styles.input}
