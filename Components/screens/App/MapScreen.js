@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import MapView from "react-native-maps"
 
 
 export default function MapScreen({ navigation }) {
@@ -12,6 +13,7 @@ export default function MapScreen({ navigation }) {
                     resizeMode="contain"
                 />
             </View>
+            <Text style={styles.textwarning}>MAP GOES HERE</Text>
         </View>
     )
 }
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#2a3750",
         justifyContent: 'center',
+        alignItems: "center",
     },
     logoContainer: {
         flex: 1,
@@ -32,4 +35,10 @@ const styles = StyleSheet.create({
         width: 75,
         height: 200,
     },
+    textwarning: {
+        fontSize: 30,
+        justifyContent: "flex-start",
+        marginBottom: 400,
+        color: "#e8c309"
+    }
 });
