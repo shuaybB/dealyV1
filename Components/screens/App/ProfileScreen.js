@@ -1,9 +1,21 @@
-import React, { Component } from "react"
+import React, { Component , useEffect, useState} from "react"
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Avatar } from "react-native-elements"
-
+import firebase from "firebase";
 
 export default function ProfileScreen({ navigation }) {
+  const { currentUser } = firebase.auth()
+  const [email, setEmail] = useState("");
+  const [nickname, setNickname] = useState("");
+  useEffect(() => {
+    console.log("ran")
+    setEmail(currentUser.email)
+    setNickname(currentUser.displayName)
+  });
+
+  const onBtnEdit = () => {
+    navigation.navigate('EditProfile')
+  }
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -15,8 +27,17 @@ export default function ProfileScreen({ navigation }) {
         <Avatar source={{
           uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         }} size="xlarge" rounded showEditButton containerStyle={{ marginTop: -50 }} />
-      </View>
 
+        <Text style={styles.emailName}>{email}</Text>
+        <Text style={styles.emailName}>{nickname}</Text>
+
+      </View>
+      <TouchableOpacity style={styles.buttonContainer} onPress={onBtnEdit}>
+            <Text style={styles.buttonText}>Edit Profile</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonContainer}>
+            <Text style={styles.buttonText}>Log out</Text>
+          </TouchableOpacity>
     </View>
   )
 }
@@ -37,5 +58,21 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 75,
     height: 200,
+  },
+  emailName: {
+    padding: 20,
+    fontSize: 30,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  buttonContainer: {
+    backgroundColor: "#E5E5E5",
+    padding: 15,
+    marginBottom: 12,
+    width: "85%",
+    alignItems: "center",
+    borderRadius: 20,
+    borderColor: "#fca311",
+    borderWidth: 2
   },
 });

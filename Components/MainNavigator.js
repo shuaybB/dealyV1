@@ -22,6 +22,13 @@ const AuthStackScreen = () => (
   </AuthStack.Navigator>
 );
 
+const ProfileStack = createStackNavigator()
+const ProfileStackScreen = () => (
+  <ProfileStack.Navigator headerMode='none' initialRouteName="Profile">
+    <AuthStack.Screen name="Profile" component={ProfileScreen} />
+    <AuthStack.Screen name="EditProfile" component={EditProfileScreen} />
+  </ProfileStack.Navigator>
+);
 
 const Tabs = createMaterialBottomTabNavigator();
 const TabsScreen = () => (
@@ -29,7 +36,7 @@ const TabsScreen = () => (
     <Tabs.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: "Home", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="home" color={color} size={26} />), }} />
     <Tabs.Screen name="Hot Deals" component={HotDealScreen} options={{ tabBarLabel: "Hot Deals", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="fire" color={color} size={26} />), }} />
     <Tabs.Screen name="Map" component={MapScreen} options={{ tabBarLabel: "Map", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="map-marker" color={color} size={26} />), }} />
-    <Tabs.Screen name="Settings" component={ProfileScreen} options={{ tabBarLabel: "Profile", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="account" color={color} size={26} />), }} />
+    <Tabs.Screen name="Settings" component={ProfileStackScreen} options={{ tabBarLabel: "Profile", tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="account" color={color} size={26} />), }} />
   </Tabs.Navigator>
 );
 
