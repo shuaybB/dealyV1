@@ -1,4 +1,4 @@
-import React, { Component , useEffect, useState} from "react"
+import React, { Component, useEffect, useState } from "react"
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Avatar } from "react-native-elements"
 import firebase from "firebase";
@@ -28,11 +28,11 @@ export default function ProfileScreen({ navigation }) {
 
       </View>
       <TouchableOpacity style={styles.buttonContainer} onPress={onBtnEdit}>
-            <Text style={styles.buttonText}>Edit Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Log out</Text>
-          </TouchableOpacity>
+        <Text style={styles.buttonText}>Edit Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer}>
+        <Text style={styles.buttonText}>Log out</Text>
+      </TouchableOpacity>
     </View>
   )
 }
