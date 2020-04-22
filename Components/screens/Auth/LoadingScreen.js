@@ -9,7 +9,7 @@ export default function LoadingScreen({ navigation }) {
       <View style={styles.logoContainer}>
         <Image
           style={styles.tinyLogo}
-          source={require("../../../assets/Logo.png")}
+          source={require("../../../assets/DealyLogo.png")}
         />
       </View>
     </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   tinyLogo: {
-    width: 70,
-    height: 50,
+    width: 250,
+    height: 300,
   }
 });
