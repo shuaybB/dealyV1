@@ -1,4 +1,4 @@
-import React, { Component , useEffect, useState} from "react"
+import React, { Component, useEffect, useState } from "react"
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Avatar } from "react-native-elements"
 import firebase from "firebase";
@@ -15,7 +15,7 @@ export default function ProfileScreen({ navigation }) {
         console.log(e);
     }
 }
-  
+
   const onBtnEdit = () => {
     navigation.navigate('EditProfile')
   }
