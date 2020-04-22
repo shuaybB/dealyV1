@@ -13,7 +13,7 @@ export default function MapScreen({ navigation }) {
                     resizeMode="contain"
                 />
             </View>
-            <Text style={styles.textwarning}>MAP GOES HERE</Text>
+            <Text style={styles.textwarning}>MAP IMPLEMENTATION COMING IN THE FUTURE</Text>
         </View>
     )
 }
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         justifyContent: "flex-start",
         marginBottom: 400,
-        color: "#e8c309"
+        color: "#e8c309",
+        textAlign: "center"
     }
 });
