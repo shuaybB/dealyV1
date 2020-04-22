@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Avatar } from "react-native-elements"
 
 
 export default function ProfileScreen({ navigation }) {
@@ -11,7 +12,11 @@ export default function ProfileScreen({ navigation }) {
           source={require("../../../assets/DealyLogo.png")}
           resizeMode="contain"
         />
+        <Avatar source={{
+          uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+        }} size="xlarge" rounded showEditButton containerStyle={{ marginTop: -50 }} />
       </View>
+
     </View>
   )
 }
@@ -21,6 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#2a3750",
     justifyContent: 'center',
+    alignItems: "center"
   },
   logoContainer: {
     flex: 1,
