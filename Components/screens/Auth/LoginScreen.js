@@ -2,8 +2,8 @@ import React, { Component, useState } from "react";
 import firebase from "firebase";
 import {
   View,
-  Text,
   StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
   Image,
@@ -54,20 +54,17 @@ export default function LoginScreen({ navigation }) {
         <View style={styles.container}>
           <TextInput
             style={styles.input}
-            placeholder="email"
+            placeholder="Enter your email"
             onChangeText={(email) => setEmail(email)}
             value={email}
           />
           <TextInput
-            placeholder="password"
+            placeholder="Enter your password"
             style={styles.input}
             secureTextEntry
             onChangeText={(password) => setPassword(password)}
             value={password}
           />
-
-          <Input placeholder="Enter your email"
-            leftIcon={{ type: 'font-awesome', name: 'envelope-o' }} />
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={onBottomPress}
@@ -93,7 +90,9 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#e5e5e5",
+    alignItems: "center",
+    fontSize: 14
   },
 
   logoContainer: {
@@ -109,12 +108,15 @@ const styles = StyleSheet.create({
     height: 300,
   },
   input: {
-    height: 40,
-    backgroundColor: "rgba(255,255,255,.5)",
+    height: 50,
+    backgroundColor: "white",
+    width: 300,
+    borderRadius: 10,
+    borderColor: "#fca311",
+    borderWidth: 2,
+    fontSize: 18,
+    marginBottom: 20,
     paddingLeft: 10,
-    marginBottom: 15,
-    borderRadius: 5,
-    fontSize: 15,
   },
   errorText: {
     fontSize: 25,
@@ -131,6 +133,11 @@ const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: "#2e2f60",
     padding: 15,
-    borderRadius: 8,
+    marginBottom: 12,
+    width: "85%",
+    alignItems: "center",
+    borderRadius: 20,
+    borderColor: "#fca311",
+    borderWidth: 2
   },
 });
